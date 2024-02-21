@@ -6,7 +6,7 @@ function App() {
     <>
       <div>
         
-      <h1>Welcome to Robofriend</h1>
+      <h1 className='f1'>Welcome to Robofriend</h1>
       
       </div>
       
