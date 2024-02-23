@@ -14,7 +14,7 @@ const CardList = ({ robots })=>{
     })
 
     return (
-        <div>
+        <div className='ma2 pa2'>
             { cardArray }
         </div>
     )
