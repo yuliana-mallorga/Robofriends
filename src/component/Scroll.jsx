@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 const Scroll = ({ children }) => {
     return (
@@ -7,4 +8,7 @@ const Scroll = ({ children }) => {
     )
 }
 
+Scroll.propTypes = {
+    children: PropTypes.func.isRequired
+  };
 export default Scroll
