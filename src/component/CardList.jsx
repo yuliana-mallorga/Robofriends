@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import Card from './Card';
-import 'tachyons'
 
 const CardList = ({ robots })=>{
     const cardArray = robots.map((robot, i)=>{
@@ -22,7 +21,15 @@ const CardList = ({ robots })=>{
 }
 
 CardList.propTypes = {
-    robots: PropTypes.array
+    robots: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        username: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+      })
+    ).isRequired,
   };
+    // An array of a certain type
 
 export default CardList;

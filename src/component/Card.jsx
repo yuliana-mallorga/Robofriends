@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import 'tachyons'
+
 
 const Card = (props)=>{
     const { name, email, id } = props;
@@ -14,10 +14,10 @@ const Card = (props)=>{
     )
 }
 
-Card.propTypes = {
-    name: PropTypes.string,
-    email: PropTypes.string,
-    id: PropTypes.number
+  Card.propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
   };
 
 export default Card;
