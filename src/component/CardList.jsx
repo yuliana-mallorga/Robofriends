@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 
 const CardList = ({ robots })=>{
-    const cardArray = robots.map((robot, i)=>{
+    const cardArray = robots.map((user, i)=>{
         return (            
             <Card 
                 key= {i}
