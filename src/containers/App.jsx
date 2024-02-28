@@ -1,9 +1,9 @@
 import { Component } from "react";
-import CardList from "../component/CardList";
-import SearchBox from "../component/SearchBox";
+import CardList from "../components/CardList";
+import SearchBox from "../components/SearchBox";
 import "./App.css";
-import Scroll from "../component/Scroll";
-
+import Scroll from "../components/Scroll";
+import ErrorBoundry from "../components/ErrorBoundry";
 class App extends Component {
   constructor() {
     super();
@@ -21,29 +21,30 @@ class App extends Component {
 
   onSearchChage = (e) => {
     this.setState({ searchField: e.target.value });
-    console.log("searchField", this.state.searchField);
   };
 
   render() {
-    const filteredRobots = this.state.robots.filter((robot) => {
+    const { robots, searchField } = this.state;
+    const filteredRobots = robots.filter((robot) => {
       return robot.name
         .toLowerCase()
-        .includes(this.state.searchField.toLowerCase());
+        .includes(searchField.toLowerCase());
     });
-    if (this.state.robots.length === 0) {
-      return <h1 className="f1 tc ma0 pa5 tracked">Loading...</h1>;
-    } else {
-      return (
+      return !robots.length ? 
+      <h1 className="f1 tc ma0 pa5 tracked">Loading...</h1> :
+     (
         <div className="tc">
           <h1 className="f1 pa4 bg-black tracked">Welcome to RoboFriend</h1>
           <SearchBox searchChange={this.onSearchChage} />
           <Scroll>
-            <CardList robots={filteredRobots} />
+            <ErrorBoundry fallback={<h1>Something went wrong</h1>}>
+              <CardList robots={filteredRobots} />
+            </ErrorBoundry>
           </Scroll>
         </div>
       );
     }
   }
-}
+
 
 export default App;

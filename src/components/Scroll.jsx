@@ -9,6 +9,6 @@ const Scroll = ({ children }) => {
 }
 
 Scroll.propTypes = {
-    children: PropTypes.func.isRequired
+    children: PropTypes.object
   };
 export default Scroll
