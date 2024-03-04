@@ -1,7 +1,6 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
-/*global logErrorToMyService*/
-/*eslint no-undef: "error"*/
+import logger from "../services/logger";
 
 class ErrorBoundry extends Component {
     constructor(props){
@@ -16,7 +15,7 @@ class ErrorBoundry extends Component {
       }
     
       componentDidCatch(error, info) {
-        logErrorToMyService(error, info.componentStack);
+        logger(error, info.componentStack);
       }
     
       render() {
